@@ -12,7 +12,7 @@ COPY . .
 # Spring Boot 애플리케이션을 JAR 파일로 빌드합니다.
 RUN chmod +x ./gradlew && ./gradlew build
 
-RUN ls -l ./build
+RUN ls -l ./build/libs
 
 # 생성된 JAR 파일을 복사합니다.
 ARG JAR_FILE=./build/libs/*.jar
