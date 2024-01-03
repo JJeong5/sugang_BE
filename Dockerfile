@@ -19,14 +19,8 @@ FROM openjdk:11-jdk
 RUN mkdir /app
 WORKDIR /app
 
-# 앱 디렉터리에 빌드 디렉터리 생성
-RUN mkdir ./build
-
-# builder 스테이지에서 빌드된 React 앱을 앱의 빌드 디렉터리로 복사
-COPY --from=builder /sugang_BE/build /app/build
-
-# 생성된 JAR 파일을 복사합니다.
-COPY build/libs/modoosugang_be-0.0.1-SNAPSHOT.jar app.jar
+# builder 스테이지에서 빌드된 JAR 파일을 앱 디렉터리로 복사
+COPY --from=builder /sugang_BE/build/libs/modoosugang_be-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # 포트 8081을 개방합니다.
 EXPOSE 8081
