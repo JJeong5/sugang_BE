@@ -10,7 +10,7 @@ COPY . .
 RUN ./gradlew bootJar
 
 # 생성된 JAR 파일을 복사합니다.
-ARG JAR_FILE=/build/libs/modoosugang_be-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=/build/libs/sugang_BE-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 # 포트 8081을 개방합니다.
