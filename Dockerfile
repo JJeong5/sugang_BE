@@ -1,7 +1,4 @@
-FROM openjdk:11-jdk
-
-# JAVA_HOME 환경 변수를 설정합니다.
-ENV JAVA_HOME /usr/local/openjdk-11
+FROM openjdk:11-jdk AS builder
 
 # 작업 디렉터리를 설정합니다.
 WORKDIR /sugang_BE
@@ -12,7 +9,17 @@ COPY . .
 # Spring Boot 애플리케이션을 JAR 파일로 빌드합니다.
 RUN chmod +x ./gradlew && ./gradlew build
 
-RUN ls -l ./build/libs
+#---------------스테이지 나뉨-----------------------------
+
+# 별도의 builder 스테이지에서 빌드를 완료한 후,
+# 실제 이미지를 사용하여 최종 이미지를 구성합니다.
+FROM openjdk:11-jdk
+
+# 앱 디렉터리에 빌드 디렉터리 생성
+WORKDIR /app
+
+# builder 스테이지에서 빌드된 React 앱을 앱의 빌드 디렉터리로 복사
+COPY --from=builder /sugang_BE/build /app/build
 
 # 생성된 JAR 파일을 복사합니다.
 COPY build/libs/modoosugang_be-0.0.1-SNAPSHOT.jar app.jar
