@@ -10,7 +10,7 @@ WORKDIR /sugang_BE
 COPY . .
 
 # Spring Boot 애플리케이션을 JAR 파일로 빌드합니다.
-RUN ./gradlew build
+RUN chmod +x ./gradlew && ./gradlew build
 
 # 생성된 JAR 파일을 복사합니다.
 ARG JAR_FILE=./build/libs/*.jar
