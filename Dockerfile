@@ -16,7 +16,11 @@ RUN chmod +x ./gradlew && ./gradlew build
 FROM openjdk:11-jdk
 
 # 앱 디렉터리에 빌드 디렉터리 생성
+RUN mkdir /app
 WORKDIR /app
+
+# 앱 디렉터리에 빌드 디렉터리 생성
+RUN mkdir ./build
 
 # builder 스테이지에서 빌드된 React 앱을 앱의 빌드 디렉터리로 복사
 COPY --from=builder /sugang_BE/build /app/build
