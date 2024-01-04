@@ -26,6 +26,7 @@ COPY --from=builder /sugang_BE/build/libs/modoosugang_be-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8081
 
 RUN ls -al
+RUN pwd
 
 # Spring Boot 애플리케이션을 실행합니다.
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
