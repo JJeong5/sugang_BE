@@ -22,8 +22,8 @@ WORKDIR /app
 # builder 스테이지에서 빌드된 JAR 파일을 앱 디렉터리로 복사
 COPY --from=builder /sugang_BE/build/libs/modoosugang_be-0.0.1-SNAPSHOT.jar /app/app.jar
 
-# 포트 8081을 개방합니다.
-EXPOSE 8081
+# 포트 8080을 개방합니다.
+EXPOSE 8080
 
 RUN ls -al
 RUN pwd
