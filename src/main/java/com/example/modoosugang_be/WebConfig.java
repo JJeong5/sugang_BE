@@ -12,14 +12,5 @@ public class WebConfig implements WebMvcConfigurer {
      *
      * ※크로스 도메인 이슈: 브라우저에서 다른 도메인으로 URL 요청을 하는 경우 나타나는 보안문제
      */
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOriginPatterns("http://reca-alb-2127048744.ap-northeast-2.elb.amazonaws.com") // 안에 해당 주소를 넣어도 됨
-                .allowedHeaders("*")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS" , "PATCH")
-                .exposedHeaders("Authorization", "RefreshToken")
-                .allowCredentials(true);
-        // .allowedOriginPatterns("*") 이렇게 와일드 카드로 설정하면 이거 쓰면 에러남 ( 실행 조차  X )
-    }
+
 }
