@@ -14,6 +14,6 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**").allowedMethods("*").allowCredentials(true).allowedOrigins("http://k8s-stage-game2049-bb9247bafa-590478206.ap-northeast-2.elb.amazonaws.com:80");
+        registry.addMapping("/api/**").allowedMethods("*").allowedHeaders("*").allowCredentials(true).allowedOrigins("http://k8s-stage-game2049-bb9247bafa-590478206.ap-northeast-2.elb.amazonaws.com:80");
     }
 }
