@@ -14,6 +14,6 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**").allowedMethods("*").allowCredentials(true).allowedOrigins("http://reca-alb-366926529.ap-northeast-2.elb.amazonaws.com:80");
+        registry.addMapping("/api/**").allowedMethods("*").allowCredentials(true).allowedOrigins("http://reca-alb-2127048744.ap-northeast-2.elb.amazonaws.com:80");
     }
 }
